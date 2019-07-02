@@ -1,8 +1,13 @@
 {
-  function collectHeadings(node, headings) {
+  function pushHeading(node, headings) {
     if (/^h[1-6]/i.test(node.tagName)) {
       headings.push([node.tagName, node.textContent]);
     }
+  }
+
+  function collectHeadings(node, headings) {
+    pushHeading(node, headings);
+
     if (node.length === 0) {
       return null;
     }
