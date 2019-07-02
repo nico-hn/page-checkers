@@ -5,8 +5,8 @@
     }
   }
 
-  function traverseNodes(node, action, headings) {
-    action(node, headings);
+  function traverseNodes(node, action, results = []) {
+    action(node, results);
 
     if (node.length === 0) {
       return null;
@@ -14,9 +14,9 @@
     const children = node.children;
     const childCount = children.length;
     for (let i = 0; i < childCount; i++) {
-      traverseNodes(children[i], pushHeading, headings);
+      traverseNodes(children[i], pushHeading, results);
     }
-    return headings;
+    return results;
   }
-  console.log(traverseNodes(document.body, pushHeading, []));
+  console.log(traverseNodes(document.body, pushHeading));
 }
