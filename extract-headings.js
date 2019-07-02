@@ -5,7 +5,7 @@
     }
   }
 
-  function collectHeadings(node, action, headings) {
+  function traverseNodes(node, action, headings) {
     action(node, headings);
 
     if (node.length === 0) {
@@ -14,9 +14,9 @@
     const children = node.children;
     const childCount = children.length;
     for (let i = 0; i < childCount; i++) {
-      collectHeadings(children[i], pushHeading, headings);
+      traverseNodes(children[i], pushHeading, headings);
     }
     return headings;
   }
-  console.log(collectHeadings(document.body, pushHeading, []));
+  console.log(traverseNodes(document.body, pushHeading, []));
 }
