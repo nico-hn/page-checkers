@@ -14,7 +14,7 @@
     const children = node.children;
     const childCount = children.length;
     for (let i = 0; i < childCount; i++) {
-      traverseNodes(children[i], pushHeading, results);
+      traverseNodes(children[i], action, results);
     }
     return results;
   }
