@@ -1,7 +1,11 @@
 {
+  function headingText(node) {
+    return node.textContent;
+  }
+
   function pushHeading(node, headings) {
     if (/^h[1-6]/i.test(node.tagName)) {
-      headings.push([node.tagName, node.textContent]);
+      headings.push([node.tagName, headingText(node)]);
     }
   }
 
