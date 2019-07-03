@@ -5,6 +5,12 @@
     }
   }
 
+  function pushImg(node, imgs) {
+    if (/^img/i.test(node.tagName)) {
+      imgs.push([node.tagName, node.alt]);
+    }
+  }
+
   function traverseNodes(node, action, results = []) {
     action(node, results);
 
