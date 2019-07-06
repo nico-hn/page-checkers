@@ -1,6 +1,12 @@
 {
   function headingText(node) {
-    return node.textContent;
+    const text = node.textContent.trim();
+
+    if (text === "" && node.children.length > 0) {
+      return traverseNodes(node, pushImg);
+    } else {
+      return text;
+    }
   }
 
   function pushHeading(node, headings) {
@@ -29,4 +35,5 @@
     return results;
   }
   console.log(traverseNodes(document.body, pushHeading));
+  console.log(traverseNodes(document.body, pushImg));
 }
