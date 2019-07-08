@@ -3,7 +3,7 @@
     const text = node.textContent.trim();
 
     if (text === "" && node.children.length > 0) {
-      return traverseNodes(node, pushImg);
+      return formatNodeContents(traverseNodes(node, pushImg));
     } else {
       return text;
     }
@@ -13,6 +13,15 @@
     if (/^h[1-6]/i.test(node.tagName)) {
       headings.push([node.tagName, headingText(node)]);
     }
+  }
+
+  function formatNodeContent(content) {
+    const [tagName, value] = content;
+    return `[${tagName}]${value}`;
+  }
+
+  function formatNodeContents(contents, separator = "") {
+    return contents.map(formatNodeContent).join(separator);
   }
 
   function pushImg(node, imgs) {
@@ -34,6 +43,6 @@
     }
     return results;
   }
-  console.log(traverseNodes(document.body, pushHeading));
-  console.log(traverseNodes(document.body, pushImg));
+  console.log(formatNodeContents(traverseNodes(document.body, pushHeading), '\r\n'));
+  console.log(formatNodeContents(traverseNodes(document.body, pushImg), '\r\n'));
 }
