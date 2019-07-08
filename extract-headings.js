@@ -1,4 +1,14 @@
 {
+  const indentConfig = {
+    'H1': '',
+    'H2': '__',
+    'H3': '____',
+    'H4': '______',
+    'H5': '________',
+    'H6': '__________',
+    'IMG': ''
+  };
+
   function headingText(node) {
     const text = node.textContent.trim();
 
@@ -17,11 +27,15 @@
 
   function formatNodeContent(content) {
     const [tagName, value] = content;
-    return `[${tagName}]${value}`;
+    return `${toIndent(tagName)}[${tagName}]${value}`;
   }
 
   function formatNodeContents(contents, separator = "") {
     return contents.map(formatNodeContent).join(separator);
+  }
+
+  function toIndent(tagName) {
+    return indentConfig[tagName] || '';
   }
 
   function pushImg(node, imgs) {
