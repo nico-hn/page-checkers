@@ -19,10 +19,8 @@
     }
   }
 
-  function pushHeading(node, headings) {
-    if (/^h[1-6]/i.test(node.tagName)) {
-      headings.push([node.tagName, headingText(node)]);
-    }
+  function formatNodeContents(contents, separator = "") {
+    return contents.map(formatNodeContent).join(separator);
   }
 
   function formatNodeContent(content) {
@@ -30,12 +28,14 @@
     return `${toIndent(tagName)}[${tagName}]${value}`;
   }
 
-  function formatNodeContents(contents, separator = "") {
-    return contents.map(formatNodeContent).join(separator);
-  }
-
   function toIndent(tagName) {
     return indentConfig[tagName] || '';
+  }
+
+  function pushHeading(node, headings) {
+    if (/^h[1-6]/i.test(node.tagName)) {
+      headings.push([node.tagName, headingText(node)]);
+    }
   }
 
   function pushImg(node, imgs) {
