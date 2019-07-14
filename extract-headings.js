@@ -12,14 +12,14 @@
   function headingText(node) {
     const text = node.textContent.trim();
 
-    if (text === "" && node.children.length > 0) {
+    if (text === '' && node.children.length > 0) {
       return formatNodeContents(traverseNodes(node, pushImg));
     } else {
       return text;
     }
   }
 
-  function formatNodeContents(contents, separator = "") {
+  function formatNodeContents(contents, separator = '') {
     return contents.map(formatNodeContent).join(separator);
   }
 
@@ -50,13 +50,16 @@
     if (node.length === 0) {
       return null;
     }
+
     const children = node.children;
     const childCount = children.length;
+
     for (let i = 0; i < childCount; i++) {
       traverseNodes(children[i], action, results);
     }
     return results;
   }
+
   console.log(formatNodeContents(traverseNodes(document.body, pushHeading), '\r\n'));
   console.log(formatNodeContents(traverseNodes(document.body, pushImg), '\r\n'));
 }
