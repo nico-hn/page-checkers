@@ -1,0 +1,14 @@
+{
+  "name": "page-checkers",
+  "version": "0.1.0",
+  "description": "Tools that let you conduct preliminary tesing of web pages, for conformance with WCAG 2.0",
+  "main": "index.js",
+  "module": "main.js",
+  "repository": "git@github.com:nico-hn/page-checkers.git",
+  "author": "HASHIMOTO, Naoki <hashimoto.naoki@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
