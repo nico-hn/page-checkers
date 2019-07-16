@@ -1,0 +1,6 @@
+<svg version="1.1" baseProfile="full" width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="75" r="60" fill="#ffffcc" />
+  <circle cx="150" cy="75" r="60" fill="#f2ffcc" />
+  <circle cx="200" cy="75" r="60" fill="#e6ffcc" />
+  <text x="150" y="80" font-size="20" text-anchor="middle" fill="#008400">Sample html for headings</text>
+</svg>
