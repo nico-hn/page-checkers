@@ -23,7 +23,13 @@ module.exports = function(config) {
         pattern: 'test/**/*.js',
         type: 'module'
       },
-      'fixtures/**/*.html'
+      'fixtures/**/*.html',
+      {
+        pattern: 'fixtures/images/*.svg',
+        watched: false,
+        included: false,
+        served: true
+      }
     ],
 
 
@@ -41,6 +47,10 @@ module.exports = function(config) {
     // Settings for html2js
     html2JsPreprocessor: {
       stripPrefix: 'fixtures/'
+    },
+
+    proxies: {
+      '/images/': '/base/fixtures/images/'
     },
 
 
