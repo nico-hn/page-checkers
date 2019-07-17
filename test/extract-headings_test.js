@@ -1,9 +1,12 @@
 import {
-  formatNodeContents,
   pushHeading,
   pushImg,
   traverseNodes
 } from '../lib/extract-headings.js';
+
+import {
+  formatNodeContents
+} from '../lib/text-formatter.js';
 
 describe('extract-headings', function() {
 
@@ -50,7 +53,7 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
       document.body.innerHTML = __html__['headings_with_image.html'];
 
       const headings = traverseNodes(document.body, pushHeading);
-      console.log(headings[0]);
+
       expect(headings[0]).to.deep.equal(expectedData);
     });
 
