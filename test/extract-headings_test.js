@@ -28,7 +28,7 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
   describe('pushImg', function() {
     const expectedImgs = `[IMG]Image with alt text
 [IMG]
-[IMG]
+[IMG]images/image_without_alt.svg
 [IMG]Image with alt text`.split(/\n/).join('\r\n');
 
     const expectedData = [
@@ -44,7 +44,7 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
       },
       {
         tagName: 'IMG',
-        text: '',
+        text: 'images/image_without_alt.svg',
         altStatus: 'undefined'
       },
       {
