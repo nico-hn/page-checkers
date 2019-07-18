@@ -34,19 +34,23 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
     const expectedData = [
       {
         tagName: 'IMG',
-        text: 'Image with alt text'
+        text: 'Image with alt text',
+        altStatus: 'defined'
       },
       {
         tagName: 'IMG',
-        text: ''
+        text: '',
+        altStatus: 'empty'
       },
       {
         tagName: 'IMG',
-        text: ''
+        text: '',
+        altStatus: 'undefined'
       },
       {
         tagName: 'IMG',
-        text: 'Image with alt text'
+        text: 'Image with alt text',
+        altStatus: 'defined'
       }
     ];
 
@@ -77,7 +81,11 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
     const expectedData = {
       tagName: 'H1',
       text: [
-        { tagName: 'IMG', text: 'Sample html for headings' }
+        {
+          tagName: 'IMG',
+          text: 'Sample html for headings',
+          altStatus: 'defined'
+        }
       ]
     };
 
