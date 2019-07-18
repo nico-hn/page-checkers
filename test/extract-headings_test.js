@@ -31,12 +31,39 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
 [IMG]
 [IMG]Image with alt text`.split(/\n/).join('\r\n');
 
+    const expectedData = [
+      {
+        tagName: 'IMG',
+        text: 'Image with alt text'
+      },
+      {
+        tagName: 'IMG',
+        text: ''
+      },
+      {
+        tagName: 'IMG',
+        text: ''
+      },
+      {
+        tagName: 'IMG',
+        text: 'Image with alt text'
+      }
+    ];
+
     it('expects to return a list of imgs', function() {
       document.body.innerHTML = __html__['images.html'];
 
       const imgs = formatNodeContents(traverseNodes(document.body, pushImg), '\r\n');
 
       expect(imgs).to.equal(expectedImgs);
+    });
+
+    it('expects to return an array of objects', function() {
+      document.body.innerHTML = __html__['images.html'];
+
+      const imgs = traverseNodes(document.body, pushImg);
+
+      expect(imgs).to.deep.equal(expectedData);
     });
   });
 
