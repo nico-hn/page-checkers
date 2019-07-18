@@ -26,12 +26,17 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
   });
 
   describe('pushImg', function() {
+    const expectedImgs = `[IMG]Image with alt text
+[IMG]
+[IMG]
+[IMG]Image with alt text`.split(/\n/).join('\r\n');
+
     it('expects to return a list of imgs', function() {
-      document.body.innerHTML = __html__['headings.html'];
+      document.body.innerHTML = __html__['images.html'];
 
       const imgs = formatNodeContents(traverseNodes(document.body, pushImg), '\r\n');
 
-      expect(imgs).to.equal('');
+      expect(imgs).to.equal(expectedImgs);
     });
   });
 
