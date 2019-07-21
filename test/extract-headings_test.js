@@ -76,6 +76,63 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
     });
   });
 
+  describe('node tree with invisible sections', function() {
+    document.body.innerHTML = __html__['headings_with_hidden_sections.html'];
+
+    const curPath = document.URL.replace(/[^\/]+$/, '');
+    const [
+      heading0,
+      heading1,
+      ,,
+      heading2,
+      heading3
+    ] = traverseNodes(document.body, pushHeading);
+
+    it('expects', function() {
+      const expected = {
+        tagName: 'H2',
+        text: 'Level2-1',
+        invisible: {
+          invisibleRootId: 'sec-2-1',
+          invisibleRootClass: undefined,
+          method: 'visibility:hidden'
+        }
+      };
+
+      expect(heading1).to.deep.equal(expected);
+    });
+
+    it('expects', function() {
+      const expected = {
+        tagName: 'H2',
+        text: [
+          {
+            tagName: 'IMG',
+            text: 'Level2-2',
+            altStatus: 'defined',
+            currentSrc: `${curPath}images/image_with_alt_text.svg`
+          }
+        ],
+        invisible: {
+          invisibleRootId: 'sec-2-2',
+          invisibleRootClass: undefined,
+          method: 'display:none'
+        }
+      };
+
+      expect(heading2).to.deep.equal(expected);
+    });
+
+    it('expects', function() {
+      const expected = {
+        tagName: 'H2',
+        text: 'Level2-3'
+      };
+
+      expect(heading3).to.deep.equal(expected);
+    });
+  });
+
   describe('pushHeading with images', function() {
     const curPath = document.URL.replace(/[^\/]+$/, '');
     const expectedHeadings = `[H1][IMG]Sample html for headings
