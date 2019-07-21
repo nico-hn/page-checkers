@@ -37,25 +37,25 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
         tagName: 'IMG',
         text: 'Image with alt text',
         altStatus: 'defined',
-        currentSrc: `${curPath}${'images/image_with_alt_text.svg'}`
+        currentSrc: `${curPath}images/image_with_alt_text.svg`
       },
       {
         tagName: 'IMG',
         text: '',
         altStatus: 'empty',
-        currentSrc: `${curPath}${'images/image_with_empty_alt.svg'}`
+        currentSrc: `${curPath}images/image_with_empty_alt.svg`
       },
       {
         tagName: 'IMG',
         text: 'images/image_without_alt.svg',
         altStatus: 'undefined',
-        currentSrc: `${curPath}${'images/image_without_alt.svg'}`
+        currentSrc: `${curPath}images/image_without_alt.svg`
       },
       {
         tagName: 'IMG',
         text: 'Image with alt text',
         altStatus: 'defined',
-        currentSrc: `${curPath}${'images/image_with_alt_text.svg'}`
+        currentSrc: `${curPath}images/image_with_alt_text.svg`
       }
     ];
 
@@ -148,7 +148,7 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
           tagName: 'IMG',
           text: 'Sample html for headings',
           altStatus: 'defined',
-          currentSrc: `${curPath}${'images/title.svg'}`
+          currentSrc: `${curPath}images/title.svg`
         }
       ]
     };
