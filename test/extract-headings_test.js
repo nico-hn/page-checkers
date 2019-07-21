@@ -26,6 +26,7 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
   });
 
   describe('pushImg', function() {
+    const curPath = document.URL.replace(/[^\/]+$/, '');
     const expectedImgs = `[IMG]Image with alt text
 [IMG]
 [IMG]images/image_without_alt.svg
@@ -35,22 +36,26 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
       {
         tagName: 'IMG',
         text: 'Image with alt text',
-        altStatus: 'defined'
+        altStatus: 'defined',
+        currentSrc: `${curPath}${'images/image_with_alt_text.svg'}`
       },
       {
         tagName: 'IMG',
         text: '',
-        altStatus: 'empty'
+        altStatus: 'empty',
+        currentSrc: `${curPath}${'images/image_with_empty_alt.svg'}`
       },
       {
         tagName: 'IMG',
         text: 'images/image_without_alt.svg',
-        altStatus: 'undefined'
+        altStatus: 'undefined',
+        currentSrc: `${curPath}${'images/image_without_alt.svg'}`
       },
       {
         tagName: 'IMG',
         text: 'Image with alt text',
-        altStatus: 'defined'
+        altStatus: 'defined',
+        currentSrc: `${curPath}${'images/image_with_alt_text.svg'}`
       }
     ];
 
@@ -72,6 +77,7 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
   });
 
   describe('pushHeading with images', function() {
+    const curPath = document.URL.replace(/[^\/]+$/, '');
     const expectedHeadings = `[H1][IMG]Sample html for headings
 __[H2]Level2-1
 ____[H3]Level3-1
@@ -84,7 +90,8 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
         {
           tagName: 'IMG',
           text: 'Sample html for headings',
-          altStatus: 'defined'
+          altStatus: 'defined',
+          currentSrc: `${curPath}${'images/title.svg'}`
         }
       ]
     };
