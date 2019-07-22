@@ -55,4 +55,20 @@ __[H2]Level2-2`.split(/\n/).join('\r\n');
       expect(headings).to.equal(expectedHeadings);
     });
   });
+
+  describe('pushHeading with hidden headings', function() {
+    const expectedHeadings = `[H1]Headings with hidden sections
+__[H2]<visibility:hidden>Level2-1
+____[H3]<visibility:hidden>Level3-1
+____[H3]<visibility:hidden>Level3-2
+__[H2]<display:none>[IMG]Level2-2
+__[H2]Level2-3`.split(/\n/).join('\r\n');
+
+    it ('expects to return a list of headings with its vibility', function() {
+      document.body.innerHTML = __html__['headings_with_hidden_sections.html'];
+      const headings = formatNodeContents(traverseNodes(document.body, pushHeading), '\r\n');
+
+      expect(headings).to.equal(expectedHeadings);
+    });
+  });
 });
